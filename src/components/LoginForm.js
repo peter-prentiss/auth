@@ -9,6 +9,8 @@ export default class LoginForm extends Component {
     onButtonPress() {
         const { email, password} = state;
 
+        this.setState({ error: ''});
+
         firebase.auth().signInWithEmailAndPassword(email, password)
             .catch(() => {
                 firebase.auth().createUserWithEmailAndPassword(email, password)
